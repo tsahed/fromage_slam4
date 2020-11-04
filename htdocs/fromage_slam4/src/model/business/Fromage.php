@@ -1,7 +1,7 @@
 <?php
 namespace thalia_sahed\model\business;
 
-class Fromage
+class Fromage implements iBusinessClass
 {
     //Attributs
     private $_id;
@@ -90,7 +90,7 @@ class Fromage
     }
 
     //Méthodes
-    private function hydrate(array $donnees)
+    public function hydrate(array $donnees)
     {
         foreach ($donnees as $key => $value)
         {

@@ -1,5 +1,5 @@
 <?php
-namespace model\business;
+namespace thalia_sahed\model\business;
 
 class Fromage
 {
@@ -83,12 +83,13 @@ class Fromage
         $this->_histoire = $histoire;
     }
 
-    //Methodes
-//    public function __construct(array $data)
-//    {
-//        $this->hydrate($data);
-//    }
+    //Constructeur
+    public function __construct(array $data)
+    {
+        $this->hydrate($data);
+    }
 
+    //Méthodes
     private function hydrate(array $donnees)
     {
         foreach ($donnees as $key => $value)

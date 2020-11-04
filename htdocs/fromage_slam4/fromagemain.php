@@ -1,19 +1,20 @@
 <?php
-//require_once ('model\business\Fromage.php');
-//use thalia\model\business\Fromage;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+//require 'Autoloader.php';
+//Autoloader::register();
+require __DIR__ . '/vendor/autoload.php';
+use thalia_sahed\model\business\Fromage;
+
+$log = new Monolog\Logger('name');
+$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+$log->addWarning('Foo');
 
 
-use model\business;
-require 'Autoloader.php';
-Autoloader::register();
+$t = array('Id'=>1,'Nom'=>'Camembert');
+$camembert = new Fromage($t);
 
+echo 'Id : '.$camembert -> getId();
+echo ' Fromage : '.$camembert -> getNom();
 
-$t = array('identifiant'=>1,'Nom'=>'Camembert');
-$camembert = new \model\business\Fromage($t);
-$t = array('identifiant'=>2,'Nom'=>'roquefort');
-$roquefort = new \model\business\Fromage($t);
-
-echo $camembert -> _Nom;
-echo $camembert -> _identifiant;
-echo $roquefort -> _Nom;
-echo $roquefort -> _identifiant;

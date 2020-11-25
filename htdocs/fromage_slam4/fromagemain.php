@@ -16,5 +16,5 @@ $t = array('Id'=>1,'Nom'=>'Camembert');
 $camembert = new Fromage($t);
 
 echo 'Id : '.$camembert -> getId();
-echo ' Fromage : '.$camembert -> getNom();
+echo ' Nom : '.$camembert -> getNom();
 

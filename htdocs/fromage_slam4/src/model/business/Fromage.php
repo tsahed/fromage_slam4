@@ -4,13 +4,13 @@ namespace thalia_sahed\model\business;
 class Fromage implements iBusinessClass
 {
     //Attributs
-    private $_id;
-    private $_nom;
-    private $_duree_affinage;
-    private $_date_creation;
-    private $_image;
-    private $_recette;
-    private $_histoire;
+    public $_id;
+    public $_nom;
+    public $_duree_affinage;
+    public $_date_creation;
+    public $_image;
+    public $_recette;
+    public $_histoire;
 
 
     //Getteurs et setteurs

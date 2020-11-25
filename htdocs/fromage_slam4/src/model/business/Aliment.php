@@ -7,11 +7,11 @@ namespace thalia_sahed\model\business;
 abstract class Aliment
 {
     //Attributs
-    private $_id;
-    private $_nom;
-    private $_origine;
-    private $_date_creation;
-    private $_image;
+    public $_id;
+    public $_nom;
+    public $_origine;
+    public $_date_creation;
+    public $_image;
 
     //Getteurs et setteurs
     public function getId()
@@ -63,6 +63,35 @@ abstract class Aliment
         $this->_image = $image;
     }
 
-    //Méthodes
+    //Constructeur
+    public function __construct(array $data)
+    {
+        $this->hydrate($data);
+    }
 
+    //Méthodes
+    public function hydrate(array $donnees)
+    {
+        foreach ($donnees as $key => $value)
+        {
+            // On récupère le nom du setter correspondant à l'attribut.
+            $method = 'set'.ucfirst($key);
+
+            // Si le setter correspondant existe.
+            if (method_exists($this, $method))
+            {
+                // On appelle le setter.
+                $this->$method($value);
+            }
+        }
+    }
+
+    public function display()
+    {
+        echo 'Id : '.$this->getId();
+        echo 'Nom : '.$this->getNom();
+        echo 'Origine : '.$this->getOrigine();
+        echo 'Date de création : '.$this->getDateCreation();
+        echo 'Image : '.$this->getImage();
+    }
 }

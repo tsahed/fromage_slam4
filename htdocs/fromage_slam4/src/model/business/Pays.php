@@ -4,8 +4,8 @@ namespace thalia_sahed\model\business;
 class Pays implements iBusinessClass
 {
     //Attributs
-    private $_id;
-    private $_nom;
+    public $_id;
+    public $_nom;
 
     //Getteurs et setteurs
     public function getId()

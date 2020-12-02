@@ -32,13 +32,14 @@ $thalia = new \thalia_sahed\model\business\Membre($tableau);
 
 //Conversion du tableau an chaîne json
 $jsonString = json_encode($thalia);
-echo $jsonString;
+echo '<b>'.'Tableau convertit en chaîne Json'.'</b>'.'</br>';
+echo $jsonString.'</br>';
 
 //Conversipn de la chaîne json en membre
 $member = \thalia_sahed\model\business\Membre::jsonParse($jsonString);
 echo '</br>';
 //Affichage du nouveau membre
-echo 'Nouveau membre ajouté'.'</br>';
+echo '<b>'.'Nouveau membre ajouté'.'</b>'.'</br>';
 echo 'Id : '.$member->getId().'</br>';
 echo 'Username : '.$member->getUsername().'</br>';
 echo 'Email : '.$member->getEmail().'</br>';

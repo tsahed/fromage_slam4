@@ -4,93 +4,93 @@ namespace thalia_sahed\model\business;
 class Membre implements iBusinessClass
 {
     //Attributs
-    public $_id;
-    public $_username;
-    public $_email;
-    public $_enabled;
-    public $_password;
-    public $_lastLogin;
-    public $_pseudo;
-    public $_entryDate;
+    public $id;
+    public $username;
+    public $email;
+    public $enabled;
+    public $password;
+    public $lastLogin;
+    public $pseudo;
+    public $entryDate;
 
     //Getteurs et Setteurs
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
     public function setId($id)
     {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
 
     public function getUsername()
     {
-        return $this->_username;
+        return $this->username;
     }
     public function setUsername($username)
     {
-        $this->_username = $username;
+        $this->username = $username;
     }
 
 
     public function getEmail()
     {
-        return $this->_email;
+        return $this->email;
     }
     public function setEmail($email)
     {
-        $this->_email = $email;
+        $this->email = $email;
     }
 
 
     public function getEnabled()
     {
-        return $this->_enabled;
+        return $this->enabled;
     }
     public function setEnabled($enabled)
     {
-        $this->_enabled = $enabled;
+        $this->enabled = $enabled;
     }
 
 
     public function getPassword()
     {
-        return $this->_password;
+        return $this->password;
     }
     public function setPassword($password)
     {
-        $this->_password = $password;
+        $this->password = $password;
     }
 
 
     public function getLastLogin()
     {
-        return $this->_lastLogin;
+        return $this->lastLogin;
     }
     public function setLastLogin($lastLogin)
     {
-        $this->_lastLogin = $lastLogin;
+        $this->lastLogin = $lastLogin;
     }
 
 
     public function getPseudo()
     {
-        return $this->_pseudo;
+        return $this->pseudo;
     }
     public function setPseudo($pseudo)
     {
-        $this->_pseudo = $pseudo;
+        $this->pseudo = $pseudo;
     }
 
 
     public function getEntryDate()
     {
-        return $this->_entryDate;
+        return $this->entryDate;
     }
     public function setEntryDate($entryDate)
     {
-        $this->_entryDate = $entryDate;
+        $this->entryDate = $entryDate;
     }
 
     //Constructeur
@@ -119,25 +119,23 @@ class Membre implements iBusinessClass
     public function jsonSerializable()
     {
         $array = [
-            'id' => $this->_id,
-            'username' => $this->_username,
-            'email'=> $this->_email,
-            'enabled'=> $this->_enabled,
-            'password'=> $this->_password,
-            'lastLogin'=> $this->_lastLogin,
-            'pseudo'=> $this->_pseudo,
-            'entryDate'=> $this->_entryDate
+            'id' => $this->id,
+            'username' => $this->username,
+            'email'=> $this->email,
+            'enabled'=> $this->enabled,
+            'password'=> $this->password,
+            'lastLogin'=> $this->lastLogin,
+            'pseudo'=> $this->pseudo,
+            'entryDate'=> $this->entryDate
         ];
-        return ($array);
+        return $array;
     }
 
-    public static function jsonParse($v, $array)
+    public static function jsonParse($jsonString)
     {
-        $v = json_encode($array);
-        $member = new Membre(var_dump(json_decode($v,true)));
-        print_r($member);
-        var_dump($member);
+        $tab = json_decode($jsonString, true);
+        $member = new Membre($tab);
 
-        return $v;
+        return $member;
     }
 }

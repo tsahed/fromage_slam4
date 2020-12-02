@@ -22,14 +22,29 @@ $tableau = [
     'id'=> 1,
     'username'=>"Thalïa",
     'email'=>'thalia@email.fr',
-    'present'=>0,
+    'enabled'=> false,
     'password'=>'okok',
-    'lasLogin'=>'2000-02-02',
+    'lastLogin'=>'2000-02-02',
     'pseudo'=>"Tart",
-    'dateEntry'=>'1962-02-02',
+    'entryDate'=>'1962-02-02',
 ];
 $thalia = new \thalia_sahed\model\business\Membre($tableau);
 
-//$tableau = json_encode($thalia);
+//Conversion du tableau an chaîne json
+$jsonString = json_encode($thalia);
+echo $jsonString;
 
-\thalia_sahed\model\business\Membre::jsonParse($thalia, $tableau);
+//Conversipn de la chaîne json en membre
+$member = \thalia_sahed\model\business\Membre::jsonParse($jsonString);
+echo '</br>';
+//Affichage du nouveau membre
+echo 'Nouveau membre ajouté'.'</br>';
+echo 'Id : '.$member->getId().'</br>';
+echo 'Username : '.$member->getUsername().'</br>';
+echo 'Email : '.$member->getEmail().'</br>';
+echo 'Enabled : '.$member->getEnabled().'</br>';
+echo 'Password : '.$member->getPassword().'</br>';
+echo 'Last login : '.$member->getLastLogin().'</br>';
+echo 'Pseudo : '.$member->getPseudo().'</br>';
+echo 'Entry Date : '.$member->getEntryDate().'</br>';
+

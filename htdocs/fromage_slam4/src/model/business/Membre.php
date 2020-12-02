@@ -1,7 +1,7 @@
 <?php
 namespace thalia_sahed\model\business;
 
-abstract class Membre implements JsonSerializable
+class Membre implements iBusinessClass
 {
     //Attributs
     public $_id;
@@ -116,8 +116,28 @@ abstract class Membre implements JsonSerializable
         }
     }
 
-    public function jsonParse($json)
+    public function jsonSerializable()
     {
-        $this->hydrate(json_decode($json));
+        $array = [
+            'id' => $this->_id,
+            'username' => $this->_username,
+            'email'=> $this->_email,
+            'enabled'=> $this->_enabled,
+            'password'=> $this->_password,
+            'lastLogin'=> $this->_lastLogin,
+            'pseudo'=> $this->_pseudo,
+            'entryDate'=> $this->_entryDate
+        ];
+        return ($array);
+    }
+
+    public static function jsonParse($v, $array)
+    {
+        $v = json_encode($array);
+        $member = new Membre(var_dump(json_decode($v,true)));
+        print_r($member);
+        var_dump($member);
+
+        return $v;
     }
 }

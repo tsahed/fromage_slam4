@@ -15,7 +15,7 @@ abstract class DBAL
     {
         $username = "root";
         $password = "5MichelAnnecy";
-        $dbname = "dbclubfromage";
+        $dbname = "fromage";
 
         // $this->objLog = new \util\log();
         try {
@@ -44,5 +44,4 @@ abstract class DBAL
     {
         $this->pdo = $pdo;
     }
-
 }

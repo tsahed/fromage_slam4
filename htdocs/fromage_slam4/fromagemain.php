@@ -49,3 +49,9 @@ echo 'Last login : '.$member->getLastLogin().'</br>';
 echo 'Pseudo : '.$member->getPseudo().'</br>';
 echo 'Entry Date : '.$member->getEntryDate().'</br>';
 
+$undaoPays = new \thalia_sahed\model\data\daoPays();
+echo '</br>';
+$undaoPays->getPaysById(74);
+echo '</br>';
+$undaoPays->getPaysByNom("France");
+
